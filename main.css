@@ -27,11 +27,11 @@ h1 span {
 	position: relative;
 	width: 100%;
 	max-width: 152px;
-	height: 60px;
-	background-color: #FFF;
-	margin: 30px auto;
+	/* height: 60px; */
+	/* background-color: #FFF; */
+	/* margin: 30px auto; */
 	box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
-
+  left:65px;
 	cursor: pointer;
 	user-select: none;
 }
@@ -75,6 +75,7 @@ h1 span {
   border-bottom: 2px solid #EEE;
   background-color: #222222;
   color:#fff;
+  height:30px;
 }
 
 .date-picker .dates .month .arrows {
@@ -117,5 +118,59 @@ h1 span {
 }
 
 .date-picker .dates .days .day.selected {
-	background-color: #00CA85;
+  /* background-color: #00CA85; */
+  color: blue;
+}
+
+.day:after {
+  content: '^';
+  position: relative;
+  opacity: 0;
+  transition: 0.5s;
+  display: block;
+}
+
+.day:hover:after {
+  opacity: 1;
+  top: 9px;
+  right: 7px;
+}
+
+
+
+
+.sd-container {
+  position: relative;
+  float: left;
+}
+
+.sd-container input[type="text"]
+{
+  font-family: 'Saira', Arial, Arial, Helvetica, sans-serif;  
+  font-size:10px;
+  height:21px;
+}
+
+.sd {
+  border: 1px solid black;
+  padding:5px 3px;
+  height: 21px;
+  width: 60px;
+}
+
+.open-button {
+  position: relative;
+  top: 1px;
+  right: -2px;
+  width: 28px;
+  height: 21px;
+  background: #1E1F1F;
+  pointer-events: none;
+/*   border:1px solid red; */
+}
+
+.open-button button {
+  border: none;
+  background: transparent;
+  padding-top:4px;
 }

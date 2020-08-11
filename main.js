@@ -1,5 +1,6 @@
 const date_picker_element = document.querySelector('.date-picker');
-const selected_date_element = document.querySelector('.date-picker .selected-date');
+const sd_container = document.querySelector('.sd-container');
+const selected_date_element = document.querySelector('.selected-date');
 const dates_element = document.querySelector('.date-picker .dates');
 const mth_element = document.querySelector('.date-picker .dates .month .mth');
 const yr_element = document.querySelector('.date-picker .dates .month .yr');
@@ -24,15 +25,23 @@ let selectedYear = year;
 mth_element.textContent = months[month];
 yr_element.textContent = year;
 
-selected_date_element.textContent = formatDate(date);
-selected_date_element.dataset.value = selectedDate;
+selected_date_element.value = formatDate(date);
+//selected_date_element.dataset.value = selectedDate;
 
 populateDates();
 
 // EVENT LISTENERS
-date_picker_element.addEventListener('click', toggleDatePicker);
+//date_picker_element.addEventListener('click', toggleDatePicker);
+sd_container.addEventListener('click', toggleDatePicker);
 next_mth_element.addEventListener('click', goToNextMonth);
 prev_mth_element.addEventListener('click', goToPrevMonth);
+
+dates_element.addEventListener('focusout', (event) => {
+  console.log("Testtttttt");
+  //dates_element.classList.remove('active');   
+}, true);
+
+
 
 // FUNCTIONS
 function toggleDatePicker (e) {
@@ -129,8 +138,9 @@ function populateDates (e) {
 			selectedMonth = month;
 			selectedYear = year;
 
-			selected_date_element.textContent = formatDate(selectedDate);
-			selected_date_element.dataset.value = selectedDate;
+			//selected_date_element.textContent = formatDate(selectedDate);
+      //selected_date_element.dataset.value = selectedDate;
+      selected_date_element.value = formatDate(selectedDate);
 
 			populateDates();
 		});
@@ -162,5 +172,5 @@ function formatDate (d) {
 
 	let year = d.getFullYear();
 
-	return day + '/' + month + '/' + year;
+	return month + '/' + day + '/' + year;
 }
